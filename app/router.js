@@ -8,13 +8,15 @@ const cartController = require('./controllers/cartController');
 const router = express.Router();
 
 // page d'accueil
-router.get('/', mainController.homePage);
+router.get('/', mainController.categoriesPage, mainController.homePage);
 
 // page article
-router.get('/article', mainController.articlePage);
+router.get('/article/:id', mainController.categoriesPage, mainController.articlePage);
 
 // page panier
 router.get('/cart', cartController.cartPage);
+
+router.use(mainController.notFound);
 
 
 // on exporte le router 

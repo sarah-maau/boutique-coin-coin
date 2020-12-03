@@ -1,3 +1,4 @@
+BEGIN;
 -- Duck
 
 DROP TABLE IF EXISTS "review";
@@ -19,7 +20,7 @@ INSERT INTO "duck"("id","name", "description", "size", "price", "category") VALU
 (4, 'Raymond', 'Raymond est le seul canard capable de faire du vélo. Il a tenté plusieurs fois le Tour de France mais il finit toujours second.', 8, 11.95, 'Divers'),
 (5, 'Napoleon', 'Sacré Napoléon ! Il ne lâche jamais son uniforme, même devant Netflix. Un brin susceptible, évite de lui parler de sa taille, il risque de mal le prendre.', 2, 19.00, 'Célébrités'),
 (6, 'Didier', 'Didier il n''aime rien, il n''aime personne et il n''hésite pas à le dire. Si tu as un message – haineux – à passer à quelqu’un que tu détestes, offre-lui Didier. Il sera ravi de cracher son venin.', 8, 12.00, 'Spéciaux'),
-(7, 'Chuck', 'Chuck Norris peut casser trois pattes à un canard.', 90, 8.95, 'Célébrités'),
+(7, 'Chuck', 'Chuck Norris peut casser trois pattes à un canard.', 90.00, 8.95, 'Célébrités'),
 (8, 'Noelle', 'Noëlle adore les fêtes de fin d''année. Elle avait les boules que ce ne soit pas Noël tous les jours, du coup elle s''est déguisée en sapin. Intelligent non ?', 10, 11.95, 'Divers'),
 (9, 'Ines', 'Inès vit sa meilleure vie, elle a lâché Kévin pour mettre des paillettes dans sa vie. Elle est devenue une licorne et s''est acheté un château avec des moulures au plafond.', 8, 8.95, 'Spéciaux'),
 (10, 'Elisabeth', 'Elisabeth est le canard le plus robuste qui soit. Personne ne lui arrive à la cheville. Attention, elle est un peu dure de la feuille.', 8, 11.95, 'Célébrités'),
@@ -34,7 +35,9 @@ INSERT INTO "duck"("id","name", "description", "size", "price", "category") VALU
 (19, 'Auguste', 'Auguste respecte les codes du bobo parisien : il mange des graines, habite dans le Marais et méprise les autres', 8, 19.00, 'Spéciaux'),
 (20, 'Scott', 'Scott regrette amèrement de ne pas avoir mis de caleçon sous son kilt. Par pitié, ne le soulève pas, tu risques d’être choqué.', 8, 12.00, 'Spéciaux'),
 (21, 'Charles', 'Charles fait partie de la haute et n''hésite pas à le rappeler. Il a l''air un peu hautain comme ça, mais promis il est sympa.', 8, 8.95, 'Spéciaux'),
-(22, 'Anakin', 'Il n’est pas ton père mais il prétend l’être, un vrai pot-de-colle ce type.', 8, 19.00, 'Célébrités');
+(22, 'Anakin', 'Il n’est pas ton père mais il prétend l’être, un vrai pot-de-colle ce type.', 8, 19.00, 'Célébrités'),
+(23, 'Serge', 'Serge est un gros mytho. Il fait croire à tout le monde qu''il est un dinosaure. Mais qui a déjà vu un T-Rex aussi peu effrayant ?', 12, 11.95, 'Divers'),
+(24, 'Thor', 'Ça ne se voit pas comme ça mais Thor est le plus puissant des dieux guerriers. Grâce à ce canard, vous pourrez enfin soulever son marteau.', 8, 8.95, 'Célébrités');
 
 -- Review
 
@@ -94,4 +97,11 @@ INSERT INTO "review" ("id", "author", "note", "title", "message", "duck_id") VAL
 (44, 'Martin Mysthère', 2, 'Manque de détails', 'Je ne suis pas d''acord avec le précédent commentaire. Le canard est sympa mais certains détails sont mal finis, ça fait cheap. ', 20),
 (45, 'Louis Vignac', 3, 'Pas assez cher', 'Si le canard était vraiment un baron, son prix serait plus élevé. Les -10 peuvent se l’offrir, alors à quoi bon ?', 21),
 (46, 'Heinrich von Zimmer', 3, 'Mieux que mon père', 'Je hais mon père. C''est un Nazi. Mon père est un salaud. J''ai honte d’’être son fils.', 22),
-(47, 'Luke Skywalker', 5, 'Trop bien', 'Il ne lui manque que son sabre laser !', 22);
+(47, 'Luke Skywalker', 5, 'Trop bien', 'Il ne lui manque que son sabre laser !', 22),
+(48, 'Salvador Dali ', 5, 'Top', 'Les couleurs sont superbes, je suis agréablement surpris par la douceur du plastique.', 23),
+(49, 'Lisa Fournier', 3, 'Pas très réaliste', 'Autant faire un vrai dinosaure plutôt qu''un canad déguisé en dino. Bon, après, il ne serait plus considéré comme un canard en plastique...', 23),
+(50, 'Camille Cri', 4, 'Wahou', 'Superbe canard, seul bémol : il ne couine pas comme un vrai T-Rex.', 23),
+(51, 'Jane Foster', 2, 'Passable', 'Il est mignon mais il ressemble plus à un Vinking qu''à Thor.', 24),
+(52, 'Bernard Envieux', 1, 'Canard sous stéroïdes', 'Les détails sont mals exécutés. Non mais qui a déjà vu des abdos pareils ?', 24);
+
+COMMIT;
