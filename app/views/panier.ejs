@@ -14,61 +14,42 @@
               <th>Quantité</th>
               <th>Prix HT</th>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <img class="img-thumbnail img-cart-list" src="./images/tifa.png" alt="">
-                  <div class="item-description">
-                      <h5 class="item-title">Tifa</h5>
-                      <p class="item-prize">$24.99</p>
-                  </div>
-                </td>
-
-                <td>
-                  <strong>1</strong>
-                  <a href="#">+</a> / <a href="#">-</a>
-                </td>
-
-                <td>
-                  <p class="item-subtotal">$24.99</p>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img class="img-thumbnail img-cart-list" src="./images/cloud.png" alt="">
-                  <div class="item-description">
-                      <h5 class="item-title">Cloud</h5>
-                      <p class="item-prize">$24.99</p>
-                  </div>
-                </td>
-
-                <td>
-                  <strong>2</strong>
-                  <a href="#">+</a> / <a href="#">-</a>
-                </td>
-                <td>
-                  <p class="item-subtotal">$49.98</p>
-                </td>
-              </tr>
-
+            <tbody> 
+              <% if (locals.cart && locals.cart.length>0) { %>
+                  <% for (const duck of locals.cart) { %>
+                    <tr>
+                      <td>
+                        <img class="img-thumbnail img-cart-list" src="/images/<%=duck.name.toLowerCase()%>.png" alt="<%=duck.name%>">
+                        <div class="item-description">
+                          <h5 class="item-title"><%=duck.name%></h5>
+                          <p class="item-prize"><%=duck.price%> €</p>
+                        </div>
+                      </td>
+                      <td>
+                        <strong><%=duck.quantity%></strong>
+                        <a href="/cart/add/<%=duck.id%>">+</a> / <a href="/cart/remove/<%=duck.id%>">-</a>
+                      </td>
+                      <td>
+                        <p class="item-subtotal"><%=(duck.price*duck.quantity).toFixed(2)%></p>
+                      </td>
+                    </tr>
+                  <% } %>
               <!-- Frais de port -->
               <tr>
                 <td class="text-right" colspan="2">
                   Frais de port
                 </td>
                 <td class="item-subtotal">
-                  $9.99
+                  9.99 €
                 </td>
               </tr>
-
               <tfoot>
                 <tr>
                   <td class="text-right" colspan="2">
                     Total HT
                   </td>
                   <td class="item-subtotal">
-                    $84.96
+                    <%=totalHt%> €
                   </td>
                 </tr>
 
@@ -77,7 +58,7 @@
                     TVA 20%
                   </td>
                   <td class="item-subtotal">
-                    $16.99
+                    <%=tva%> €
                   </td>
                 </tr>
 
@@ -86,12 +67,12 @@
                     Total TTC
                   </td>
                   <td class="item-total">
-                    $101.94
+                    <%=totalTtc%> €
                   </td>
                 </tr>
 
               </tfoot>
-
+            <% } %>
             </tbody>
 
           </table>

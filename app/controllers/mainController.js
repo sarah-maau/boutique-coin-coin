@@ -3,34 +3,45 @@ const dataMapper = require('../dataMapper');
 const mainController = {
 
   // méthode pour la page d'accueil
-  homePage: (request, response, next) => {
+  homePage: (req, res, next) => {
     dataMapper.getAllItems((err, data) => {
       if(err) next();
-      else response.render('accueil', {ducks: data.rows})
+      else res.render('accueil', {ducks: data.rows})
     });
-
-    ;
   },
 
   // méthode pour la page article
-  articlePage: (request, response, next) => {
-    const id = Number(request.params.id);
-    dataMapper.getOneItem(id,(err, data) => {
+  articlePage: (req, res, next) => {
+    const id = Number(req.params.id);
+    dataMapper.getOneItem(id, (err, dataDuck) => {
       if(err) next();
-      else response.render('article', {duck: data.rows[0]})
+      else {
+        dataMapper.getReviews(id, (err, dataReviews) => {
+          if(err) next();
+          else res.render('article', {duck: dataDuck.rows[0], reviews:dataReviews.rows});
+        })
+      }
     })
   },
 
-  categoriesPage: (request, response, next) => {
+  categoriesPage: (req, res, next) => {
     dataMapper.getCategories((err, data) => {
       if (err) next();
-      else response.locals.categories = data.rows;
+      else res.locals.categories = data.rows;
     })
     next();
   },
 
-  notFound: (request, response) =>{
-    response.status(404).render('error404')
+  categoryPage: (req, res, next) => {
+    dataMapper.getItemsByCategory(req.params.category, (err, data) => {
+      if (err) next();
+      else res.render('accueil', {ducks: data.rows})
+    })
+    
+  },
+
+  notFound: (req, res) =>{
+    res.status(404).render('error404')
   }
 
 };

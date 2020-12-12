@@ -1,22 +1,17 @@
-  <!-- Header -->
-  <%- include('partials/header')%>
-
+<%- include('partials/header') %>
   <!-- Page Content -->
   <div class="container container-main">
 
     <div class="row">
 
-        <!-- Left Menu -->
-        <%- include('partials/leftMenu')%>
-        
+      <%- include('partials/leftMenu') %>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-      <% if(locals.duck) { %>
 
         <div class="row">
           <div class="col-lg-6">
-            <img class="img-article" src="/images/<%=duck.name.toLowerCase()%>.png" alt="<%=duck.name%>">
+            <img class="" src="/images/<%=duck.name.toLowerCase()%>.png" alt="<%=duck.name%>">
           </div>
 
           <div class="col-lg-6">
@@ -26,37 +21,37 @@
                     <%=duck.name%>
                     <div class="badge badge-pill badge-<%=duck.category.toLowerCase()%>"><%=duck.category%></div>
                   </h3>
-                  <p class="card-text">Taille réelle : <%=duck.size%> cm</p>
+                  <p class="card-text">Taille réelle : <%=duck.size%>cm</p>
                   <p class="card-text"><%=duck.description%></p>
                   <p class="card-text">
-                    Note moyenne : &#9733; &#9733; &#9733; &#9733; &#9734;
+                    Note moyenne : <%# POur afficher la note en tant qu'Étoiles on fait une boucle qui se rÉpÈte 5 fois%>
+                    <% for(let i = 1; i <= 5 ; i++) { %>
+                      <%# si la note est supÉrieur ou Égal au compteur alors affiche une Étoile pleine%>
+                      <% if(duck.avg_note >= i) { %>
+                        &#9733;
+                        <%# SInon affiche une Étoile vide %>
+                      <% }  else { %>
+                        &#9734;
+                    <% } %>
+                  <% } %>
                     <br>
                     <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
                   </p>
                   <h5><%=duck.price%> €</h5>
                   <p class="card-text">
-                    <a href="#" class="link-add-cart">+ Ajouter au panier</a>
+                    <a href="/cart/add/<%=duck.id%>" class="link-add-cart">+ Ajouter au panier</a>
                   </p>
               </div>
             </div>
-          
           </div>
-          
-          <% } %> 
-
         </div>
         <!-- /.row -->
-
       </div>
       <!-- /.col-lg-9 -->
-
     </div>
     <!-- /.row -->
-
   </div>
   <!-- /.container -->
-
-
   <!-- Modale des avis -->
   <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="reviewsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -68,27 +63,23 @@
           </button>
         </div>
         <div class="modal-body">
+          <% for(const review of reviews) { %>
           <section>
-            <h5>Une belle figurine &nbsp; <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small></h5>
-            <p class="review-author">par Jean-Claude Dus</p>
-            <p>La finition est bien, le rose est vraiment rose. Seul bémol, le livreur a abimé la main droite.</p>
+            <h5><%=review.title%> &nbsp; <small class="text-muted">
+              <% for(let i = 1; i <= 5 ; i++) { %>
+                <% if(review.note >= i) { %>
+                  &#9733;
+                <% }  else { %>
+                  &#9734;
+              <% } %>
+            <% } %>
+            </small></h5>
+            <p class="review-author">par <%=review.author%></p>
+            <p><%=review.message%></p>
           </section>
 
           <hr>
-
-          <section>
-            <h5>Bof Bof... &nbsp; <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small></h5>
-            <p class="review-author">par Thérèse de Monsou</p>
-            <p>La figurine ne tient pas debout seule. Certains détails sont mal finis, comme les bracelets.</p>
-          </section>
-
-          <hr>
-
-          <section>
-            <h5>Juste parfait &nbsp; <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small></h5>
-            <p class="review-author">par Monsieur Preskovitch</p>
-            <p>C'est tellement parfait, on dirait que c'est roulé à la main sous les aisselles.</p>
-          </section>
+          <% } %>
 
         </div>
         <div class="modal-footer">
@@ -98,5 +89,5 @@
     </div>
   </div>
 
-    <!-- Footer -->
-  <%- include('partials/footer')%>
+
+  <%- include('partials/footer') %>
