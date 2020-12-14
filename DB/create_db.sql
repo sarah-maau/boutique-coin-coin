@@ -101,7 +101,7 @@ INSERT INTO "review" ("id", "author", "note", "title", "message", "duck_id") VAL
 (48, 'Salvador Dali ', 5, 'Top', 'Les couleurs sont superbes, je suis agréablement surpris par la douceur du plastique.', 23),
 (49, 'Lisa Fournier', 3, 'Pas très réaliste', 'Autant faire un vrai dinosaure plutôt qu''un canad déguisé en dino. Bon, après, il ne serait plus considéré comme un canard en plastique...', 23),
 (50, 'Camille Cri', 4, 'Wahou', 'Superbe canard, seul bémol : il ne couine pas comme un vrai T-Rex.', 23),
-(51, 'Jane Foster', 2, 'Passable', 'Il est mignon mais il ressemble plus à un Vinking qu''à Thor.', 24),
+(51, 'Jane Foster', 2, 'Passable', 'Il est mignon mais il ressemble plus à un Viking qu''à Thor.', 24),
 (52, 'Bernard Envieux', 1, 'Canard sous stéroïdes', 'Les détails sont mals exécutés. Non mais qui a déjà vu des abdos pareils ?', 24);
 
 COMMIT;

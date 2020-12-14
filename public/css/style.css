@@ -41,6 +41,7 @@ body {
   min-height: calc(100vh - 185px);
     /* pourquoi 185px : 65 de margin-top du body, + 120 de hauteur du footer */
 }
+
   
 .badge-category {
   position: absolute;
@@ -80,12 +81,15 @@ body {
 .nav-link,
 h1,
 .h5, 
-h5{
+h5,
+label {
   font-family: 'Chelsea Market';
 }
 
 
-.card-text {
+.card-text,
+:placeholder-shown,
+button {
   font-family: 'Lato', 'sans serif';
 }
 

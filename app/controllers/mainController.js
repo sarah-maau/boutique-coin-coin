@@ -40,6 +40,10 @@ const mainController = {
     
   },
 
+  contactPage: (req, res, next) => {
+    res.render('contact');
+  },
+
   notFound: (req, res) =>{
     res.status(404).render('error404')
   }
