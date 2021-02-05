@@ -9,7 +9,7 @@ Enfin, il peut laisser un message en utilisant la une page contact.
 
 J'ai entièrement réalisé ce projet Node.js lors de mon deuxième mois de formation en développement web FS JavaScript.
 
-Ce site est responsive.
+Ce site est responsive et respecte les "bonnes pratiques SEO".
 
 ## Réalisation
 
