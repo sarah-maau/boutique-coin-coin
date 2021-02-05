@@ -6,11 +6,11 @@ DROP TABLE IF EXISTS "duck";
 
 CREATE TABLE IF NOT EXISTS "duck" (
   "id" SERIAL PRIMARY KEY,
-  "name" TEXT,
-  "description" TEXT,
-  "size" REAL,
+  "name" TEXT NOT NULL,
+  "description" TEXT NOT NULL,
+  "size" REAL NOT NULL,
   "price" REAL NOT NULL,
-  "category" TEXT
+  "category" TEXT NOT NULL
 );
 
 INSERT INTO "duck"("id","name", "description", "size", "price", "category") VALUES
@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS "review" (
   "id" SERIAL PRIMARY KEY,
   "author" TEXT NOT NULL,
   "note" REAL NOT NULL,
-  "title" TEXT,
-  "message" TEXT,
-  "duck_id" INT,
+  "title" TEXT NOT NULL,
+  "message" TEXT NOT NULL,
+  "duck_id" INT NOT NULL,
   FOREIGN KEY("duck_id") REFERENCES "duck"("id")
 );
 INSERT INTO "review" ("id", "author", "note", "title", "message", "duck_id") VALUES

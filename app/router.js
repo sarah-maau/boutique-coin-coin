@@ -12,12 +12,12 @@ router.get('/article/:id', mainController.categoriesPage, mainController.article
 
 // page par catégorie
 router.get('/articles/:category', mainController.categoriesPage, mainController.categoryPage);
-
 router.get('/cart/add/:id', cartController.addToCart);
-
 router.get('/cart/remove/:id', cartController.removeFromCart);
 
+// page contact
 router.get('/contact', mainController.contactPage);
+router.post('/contact', mainController.submitMessage);
 
 // page panier
 router.get('/cart', cartController.cartPage);
@@ -27,7 +27,6 @@ router.get('/', mainController.categoriesPage, mainController.homePage);
 
 
 router.use(mainController.notFound);
-
 
 // on exporte le router 
 module.exports = router;

@@ -24,6 +24,7 @@ const mainController = {
     })
   },
 
+  // méthode pour afficher toutes les catégories
   categoriesPage: (req, res, next) => {
     dataMapper.getCategories((err, data) => {
       if (err) next();
@@ -32,6 +33,7 @@ const mainController = {
     next();
   },
 
+  // méthode pour afficher une seule catégorie
   categoryPage: (req, res, next) => {
     dataMapper.getItemsByCategory(req.params.category, (err, data) => {
       if (err) next();
@@ -40,8 +42,13 @@ const mainController = {
     
   },
 
+  // page contact
   contactPage: (req, res, next) => {
     res.render('contact');
+  },
+
+  submitMessage: (req, res, next) => {
+    res.redirect('/');
   },
 
   notFound: (req, res) =>{

@@ -1,9 +1,8 @@
 const dataMapper = require('../dataMapper')
 
-
 const cartController = {
 
-  // méthode pour afficher le panier
+  // méthode pour afficher et calculer le montant du panier
   cartPage: (req, res) => {
     let totalHt = 0;
 
@@ -20,6 +19,7 @@ const cartController = {
     res.render('panier', {totalHt, tva, totalTtc});
   }, 
 
+  // méthode pour ajouter un article au panier
   addToCart: (req, res, next) => {
     const id = Number(req.params.id);
     const duck = req.session.cart.find(item => item.id === id);
@@ -39,9 +39,9 @@ const cartController = {
 
       })
     }
-
   },
 
+  // méthode pour retirer un article depuis le panier
   removeFromCart: (req, res, next) => {
     const id = Number(req.parmas.id);
     const duck = req.session.cart.find(item => item.id === id);

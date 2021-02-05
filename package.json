@@ -1,18 +1,19 @@
 {
   "name": "boutique-coin-coin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Une boutique en ligne de canards en plastique",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sarah-maau/boutique-coin-coin.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sarah Maury",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sarah-maau/boutique-coin-coin/issues"
   },
