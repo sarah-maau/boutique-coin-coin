@@ -54,6 +54,8 @@ J'ai codé ce projet en 2 jours (création de la base de données comprise).
 
 ## Installation 
 
+**Node est requis pour utiliser ce code, pour le télécharger c'est [ici](https://nodejs.org/en/download/)** :) 
+
 1. Cloner le repo 
 - en utilisant la clé SSH
 ```
@@ -84,6 +86,9 @@ psql -d <nom de la base de données> -f ./database/create_db.sql
 ```
 npm start
 ```
+
+## Auteur
+Sarah Maury - [GitHub](https://github.com/sarah-maau) - [LinkedIn](https://www.linkedin.com/in/sarahmaurydev/)
 
 ## Licence
 Ce projet est sous licence MIT - voir le fichier `LICENSE` pour plus de détails
