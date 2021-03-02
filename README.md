@@ -54,7 +54,8 @@ J'ai codé ce projet en 2 jours (création de la base de données comprise).
 
 ## Installation 
 
-**Node est requis pour utiliser ce code, pour le télécharger c'est [ici](https://nodejs.org/en/download/)** :) 
+- Node.js pour le télécharger c'est [ici](https://nodejs.org/en/download/)
+- PostgreSQL
 
 1. Cloner le repo 
 - en utilisant la clé SSH
@@ -78,8 +79,7 @@ npm i
 psql -d <nom de la base de données> -f ./database/create_db.sql
 ```
 
-4. Créer un fichier .env reprenant les informations fournies dans le document `.env.example`
-   
+4. Renommer le fichier `.env.example` en `.env` avec vos variables d'environnement
 
 5. Lancer le script
 
