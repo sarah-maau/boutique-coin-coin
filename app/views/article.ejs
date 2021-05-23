@@ -24,12 +24,10 @@
                   <p class="card-text">Taille réelle : <%=duck.size%>cm</p>
                   <p class="card-text"><%=duck.description%></p>
                   <p class="card-text">
-                    Note moyenne : <%# POur afficher la note en tant qu'Étoiles on fait une boucle qui se rÉpÈte 5 fois%>
+                    Note moyenne : 
                     <% for(let i = 1; i <= 5 ; i++) { %>
-                      <%# si la note est supÉrieur ou Égal au compteur alors affiche une Étoile pleine%>
                       <% if(duck.avg_note >= i) { %>
                         &#9733;
-                        <%# SInon affiche une Étoile vide %>
                       <% }  else { %>
                         &#9734;
                     <% } %>

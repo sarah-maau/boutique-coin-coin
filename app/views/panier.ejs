@@ -20,9 +20,8 @@
                     <tr>
                       <td>
                         <img class="img-thumbnail img-cart-list" src="/images/<%=duck.name.toLowerCase()%>.png" alt="<%=duck.name%>">
-                        <div class="item-description">
+                        <div class="item-description"></div>
                           <h5 class="item-title"><%=duck.name%></h5>
-                          <p class="item-prize"><%=duck.price%> €</p>
                         </div>
                       </td>
                       <td>
@@ -30,7 +29,7 @@
                         <a href="/cart/add/<%=duck.id%>">+</a> / <a href="/cart/remove/<%=duck.id%>">-</a>
                       </td>
                       <td>
-                        <p class="item-subtotal"><%=(duck.price*duck.quantity).toFixed(2)%></p>
+                        <p class="item-subtotal"><%=(duck.price*duck.quantity).toFixed(2)%> €</p>
                       </td>
                     </tr>
                   <% } %>

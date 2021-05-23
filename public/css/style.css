@@ -82,6 +82,7 @@ body {
 h1,
 .h5, 
 h5,
+h3,
 label {
   font-family: 'Chelsea Market';
 }
@@ -134,11 +135,10 @@ table.table tbody tr td {
   margin-left: 15px;
 }
 
-
   /* Modal breakpoint is awful in bootstrap */
-@media (min-width: 576px) {
-  .modal-dialog {
-    width: 80%;
-    max-width: unset;
+  @media (min-width: 576px) {
+    .modal-dialog {
+      width: 80%;
+      max-width: unset;
+    }
   }
-}
